@@ -1,0 +1,596 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgUFVldbGwEHU1NUDwcB"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name=keywords  content="product design,ux design,design process" />
+      <meta name=description  content="My process as a designer, featuring some illustrations from yours truly." />
+      <meta name=twitter:card  content="summary_large_image" />
+      <meta name=twitter:site  content="@AdobePortfolio" />
+      <meta  property=og:title content="Francesca Negro  - Process" />
+      <meta  property=og:description content="My process as a designer, featuring some illustrations from yours truly." />
+      <meta  property=og:image content="https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f_rw_600.jpg?h=cfabc4d1ca30c9dea883cfbb09be85f5" />
+        <link rel="icon" href="https://pro2-bar-s3-cdn-cf2.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/3f9111dd-1152-435c-822f-991f367d2323_carw_1x1x32.png?h=252481c14470200ce301597420665408" />
+        <link rel="apple-touch-icon" href="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/658a1ef5-fd1b-46e0-85b9-5d2172045fed_carw_1x1x180.png?h=aaed70c1e2647f7e6be783eed54de0b0" />
+      <link rel="stylesheet" href="dist/css/main.css" type="text/css" />
+      <link rel="stylesheet" href="https://pro2-bar-s3-cdn-cf.myportfolio.com/de29f2ec8c84d9c1c3fe6aabf86a0d8d/12312eb3b082f9de717a37c8abbe967a1529270669.css?h=607de8dfcec6480d02de5decf25f7494" type="text/css" />
+    <link rel="canonical" href="https://frncn.com/process" />
+      <title>Francesca Negro  - Process</title>
+</head>
+        <body class="transition-enabled">    <div class="js-responsive-nav">
+      <div class="responsive-nav">
+        <div class="responsive-nav__contents">
+          <div class="close-responsive-click-area js-close-responsive-nav">
+            <div class="close-responsive-button"></div>
+          </div>
+              <nav class="nav-container js-editable-target editable">
+                <div class="gallery-title"><a href="work.html" >Work</a></div>
+      <div class="page-title">
+        <a href="process.html" class="active">Process</a>
+      </div>
+      <div class="page-title">
+        <a href="about.html" >About</a>
+      </div>
+              </nav>
+        </div>
+      </div>
+    </div>
+    <div class="site-wrap cfix">
+      <div class="site-container">
+        <div class="site-content">
+            <header class="site-header js-site-header js-editable-target editable  js-editable-target editable" data-context="theme.nav">
+                <nav class="nav-container js-editable-target editable">
+                <div class="gallery-title"><a href="work.html" >Work</a></div>
+      <div class="page-title">
+        <a href="process.html" class="active">Process</a>
+      </div>
+      <div class="page-title">
+        <a href="about.html" >About</a>
+      </div>
+                </nav>
+                <div class="logo-wrap js-editable-target editable" data-context="theme.nav">
+                  <div class="logo logo-text  ">
+                        <a href="work.html" class="preserve-whitespace">frncn</a>
+
+                  </div>
+                </div>
+                <div class="hamburger-click-area js-hamburger">
+                  <div class="hamburger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                </div>
+            </header>
+          <main>
+  <div class="page-container js-site-wrap js-editable-target editable" data-context="page.page.container">
+    <section class="page">
+      <div class="page-content js-page-content js-editable-target editable" data-context="pages" data-identity="id:p5a6e1005975e8f36f63683516b7c827a8669641db91cb2745026d" data-menu="Page Content">
+        <div id="project-canvas" class="js-project-modules modules content">
+          <div id="project-modules">
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align: left;" class="title">The Circle of Product Design<br><span class="texteditor-inline-fontsize" style="font-size:16px;"><span class="texteditor-inline-color" style="color:#9e9e9e;">[In All Its Freudian Glory]</span></span><br></div><div style="text-align:left;">G<span class="texteditor-inline-color" style="color:#ffffff;">etting from point A to point B is sometimes messy even when we are simply walking — wondering if the path is right, if we are going in the right direction, what if we took that shortcut and so on.</span></div><div style="text-align:left;"><span class="texteditor-inline-color" style="color:#ffffff;">But when point A is a user problem and point B is an implemented feature, it’s like navigating in open sea with an old map and a faulty compass.</span></div><div style="text-align:left;"><span class="texteditor-inline-color" style="color:#ffffff;">That is why following a rigorous process — even when time is tight — is key to getting to that point B with as much confidence and data </span>about the solution we chose as possible; but also in order to make it a little easier the following times (and to build an exhaustive documentation for future generations to come).</div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f.jpg?h=1ac021f2c630b03ccaa1fc9799e38c3e">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f_rw_1920.jpg?h=a7a7f6c2fafdbc196619ed305d4dc853"
+            data-srcset="https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f_rw_600.jpg?h=cfabc4d1ca30c9dea883cfbb09be85f5 600w,https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f_rw_1200.jpg?h=3594e5cdf97dbf5d24a326bfc690c31f 1200w,https://pro2-bar-s3-cdn-cf3.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/4493b245-727e-4f47-9a0c-b7e29c98612f_rw_1920.jpg?h=a7a7f6c2fafdbc196619ed305d4dc853 1900w,"
+            data-sizes="(max-width: 1900px) 100vw, 1900px"
+            width="1900"
+            height="0"
+            style="padding-bottom: 86%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+  width: 100%;
+  max-width: 800px;
+  float: center;
+  clear: both;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;"><br></div><div style="text-align:left;" class="sub-title">1. Understand the problem</div><div style="text-align:left;"><br></div><div style="text-align:left;">First off, how did this request come to life? Was it a customer request, the CEO’s idea, a roadmap step towards the achievement of The Vision? Understanding where that issue on Jira or email or post it with the request came from is pivotal. Discerning the actual problem that triggered the request from the messenger’s added interpretation is often hard and also easy to overlook (and let’s face it, less time consuming). Travelling back to that initial spark that triggered it means making sure the starting point of the design is the actual problem, and not one of the possible solution.</div><div style="text-align:left;">Gather insights from customer care, from the CEO, from the Head of Product, whoever and - kind of like a Sigmund Freud of Product Design - dig into that until you hit the source, the original event that sparked the request.<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/69cfdb4a-0d5b-4b0b-af48-0b9d5240caa2.jpg?h=2a229e1259410f57f8230e93a99d98da">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/69cfdb4a-0d5b-4b0b-af48-0b9d5240caa2_rw_1920.jpg?h=8a31292d646249e8c4fff433bd7e579c"
+            data-srcset="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/69cfdb4a-0d5b-4b0b-af48-0b9d5240caa2_rw_600.jpg?h=10dca40ca1758157c1e5f1b8724bd356 600w,https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/69cfdb4a-0d5b-4b0b-af48-0b9d5240caa2_rw_1200.jpg?h=7809f04fb6fc3987d20df613597360ff 1200w,https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/69cfdb4a-0d5b-4b0b-af48-0b9d5240caa2_rw_1920.jpg?h=8a31292d646249e8c4fff433bd7e579c 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 96.5%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align: left;" class="sub-title">2. Research the problem and gather data</div><div style="text-align: left;" class="main-text">Step two means getting really good at bothering people and googling things. Once identified that event (might be a childhood trauma or a customer complaint) it’s now time to get as much information as possible on it. How are other people handling that issue? Is it a widespread problem or a niche issue? Is there a way we can split that problem into smaller problems? Most importantly, gather data on it.</div><div style="text-align:left;">Even if we are talking about a completely new feature and/or the product is still to be developed, there are metrics that relate to it (to some extent) that can be used. If it’s an improvement of an existing feature it should be easier getting use data from analytics or any kind of metrics that should have been implemented.<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a5e67c13-fee0-41c9-b32d-4d4904266107.jpg?h=9814d9bb90ea61ad249a650471d66ba5">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a5e67c13-fee0-41c9-b32d-4d4904266107_rw_1920.jpg?h=63a4d009c328ad66fc374b3c1a0ca442"
+            data-srcset="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a5e67c13-fee0-41c9-b32d-4d4904266107_rw_600.jpg?h=1bd67db8cfd2cd3a35ed6daf0a82628b 600w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a5e67c13-fee0-41c9-b32d-4d4904266107_rw_1200.jpg?h=1c952f725ea546dc4e5db5f2addc9bad 1200w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a5e67c13-fee0-41c9-b32d-4d4904266107_rw_1920.jpg?h=63a4d009c328ad66fc374b3c1a0ca442 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 82.83%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">3. Re-frame the problem</div><div style="text-align: left;" class="main-text">With all that information by now, it should be easy to get a better picture of the problem and the context is exists in. Reframing the problem means getting a different set of eyes and looking at it from another perspective (see J.W. Getzels works on the “Problem of the Problem” and creative problem solving), thus spoiling it from any previous bias or interpretation that might have been added while collecting it.</div><div style="text-align:left;">So, while the feature request might have been “we need a feature that allows to transfer money to the user when the balance is low” (which is a request that already contains the solution), the problem that originated it might have been “transferring money to the user is time consuming and requires checking constantly the balance”. This new reframing of the problem opens up new paths towards the solution (either implement the scheduler, or an automatic alert when the balance is low).<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/7d1c2abf-8dea-4e6c-babe-347245148ce6.jpg?h=642e2bd1616a0f655145d93480e0968b">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/7d1c2abf-8dea-4e6c-babe-347245148ce6_rw_1920.jpg?h=c7ffa77413550b325cdf8e907d7bec95"
+            data-srcset="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/7d1c2abf-8dea-4e6c-babe-347245148ce6_rw_600.jpg?h=47e108e4ec645c578308e4f24278fab3 600w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/7d1c2abf-8dea-4e6c-babe-347245148ce6_rw_1200.jpg?h=b5f7ddb96b6f2c611f544d579371f5da 1200w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/7d1c2abf-8dea-4e6c-babe-347245148ce6_rw_1920.jpg?h=c7ffa77413550b325cdf8e907d7bec95 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 79.17%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">4. Design the solution<br></div><div style="text-align:left;">The problem is now identified and data is available to put it into the wider context of the product. It is now time to frame the solution as in “decide which one of these paths is going to the solution which is better fit for the problem”. For this purpose it can be useful to put in the form of questions which features should the solution have - “should the user be able to set an automatic reminder?” “Should the user be able to import events?” - and build a list of possible solution approaches. The aim is to narrow down the options and form an assumption that will be tested with a prototype.</div><div style="text-align:left;">Since the aim is testing the assumption, the prototype would ideally be focused around that, and making it assumption-centered, trying to strip it from all the frills and unnecessary details that might distract the user when testing. At this step it is also ideal to chat with the developers and anyone else that will be involved in the process (QA, wider design team, customer care) to gather their insights on the solution from their perspective.<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/61f9194b-fdb8-4197-819c-b2898beabe28.jpg?h=a8fb6c6835c539a2e519ba1fdc157da7">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/61f9194b-fdb8-4197-819c-b2898beabe28_rw_1920.jpg?h=4094791872bfe3133a2cbeab80945be4"
+            data-srcset="https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/61f9194b-fdb8-4197-819c-b2898beabe28_rw_600.jpg?h=471547cd455d07952645dcbb6d10a4c5 600w,https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/61f9194b-fdb8-4197-819c-b2898beabe28_rw_1200.jpg?h=86f1f5dc2d4d766989fec2317881d821 1200w,https://pro2-bar-s3-cdn-cf5.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/61f9194b-fdb8-4197-819c-b2898beabe28_rw_1920.jpg?h=4094791872bfe3133a2cbeab80945be4 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 99.33%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">5. Test the solution</div><div style="text-align: left;" class="main-text">Depending on the resources and time available, user testing is always both challenging and necessary. Even if the resources are low and time is tight, testing a sample of users that is representative of the larger user base of the product is extremely important, even more so than having a large sample which is not representative and thus, biased (see the Literary Digest case in 1936). Collecting notes - or better yet record the audio - in the most exhaustive way means it is easier if the interviews are conducted with the help of a UX researcher (if possible, or at least another human being who can write) in order to keep both the quality of the notes and the interview high.<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf1.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/cea1a9fc-5723-427b-9fa3-cb8052e2a310.jpg?h=6d8abc1e9abcb29c82d4de869be965fb">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf1.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/cea1a9fc-5723-427b-9fa3-cb8052e2a310_rw_1920.jpg?h=c10fe82c528495993a17151297ea6819"
+            data-srcset="https://pro2-bar-s3-cdn-cf1.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/cea1a9fc-5723-427b-9fa3-cb8052e2a310_rw_600.jpg?h=a598150858500b3546b461ba21c22d8e 600w,https://pro2-bar-s3-cdn-cf1.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/cea1a9fc-5723-427b-9fa3-cb8052e2a310_rw_1200.jpg?h=65d2b86afb6cce7297020a7d859e75b5 1200w,https://pro2-bar-s3-cdn-cf1.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/cea1a9fc-5723-427b-9fa3-cb8052e2a310_rw_1920.jpg?h=c10fe82c528495993a17151297ea6819 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 95.83%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">6. Implement the solution<br></div><div style="text-align:left;">So now, is the assumption validated or not? If so, what are the pain points and strengths of the design? Assuming it all went well (assumption validated and minor pain points) the prototype will have to be turned into actual screens and requirements to give the developers. In order to pave the path for future iterations, defining which are the KPIs and success indicators of the feature is a mandatory task that might require help from other team members (marketing people, BE and FE devs).</div><div style="text-align:left;">In case the assumption was not tested it would be necessary to go back to the previous step of designing the solution or even reviewing the problem itself, and start again.</div><div style="text-align:left;">When designing a complex solution - to, most likely, a complex problem - I personally always try begin with implementing the simplest version of the solution, and to add complexity over time and releases.</div><div style="text-align:left;"><br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf4.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/5ecd38b1-b92e-4c07-95aa-54454abbb341.jpg?h=3d6658f1d39594bf7a836d6b44374843">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf4.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/5ecd38b1-b92e-4c07-95aa-54454abbb341_rw_1920.jpg?h=87c25b8cd7bb084b3ad86a87e41f45c0"
+            data-srcset="https://pro2-bar-s3-cdn-cf4.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/5ecd38b1-b92e-4c07-95aa-54454abbb341_rw_600.jpg?h=f945ff8d8864659f14d427201e76e975 600w,https://pro2-bar-s3-cdn-cf4.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/5ecd38b1-b92e-4c07-95aa-54454abbb341_rw_1200.jpg?h=8e4863d8d386c4637a8ffdbc5ca044a5 1200w,https://pro2-bar-s3-cdn-cf4.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/5ecd38b1-b92e-4c07-95aa-54454abbb341_rw_1920.jpg?h=87c25b8cd7bb084b3ad86a87e41f45c0 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 111.17%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">7. Ship the feature<br></div><div style="text-align:left;">Well, this is self explanatory. Just get it out there and let the world know it is out there.</div><div style="text-align:left;"><br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 67%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a73a1162-64d5-4505-9056-c81b5f001826.jpg?h=4d8f4c1274dd8262e96c7469e65a5184">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a73a1162-64d5-4505-9056-c81b5f001826_rw_1920.jpg?h=2a1872631b30bdf0701adc74491fe69b"
+            data-srcset="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a73a1162-64d5-4505-9056-c81b5f001826_rw_600.jpg?h=44f1e3dbf1abdd4510d023bd1b86e20d 600w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a73a1162-64d5-4505-9056-c81b5f001826_rw_1200.jpg?h=b43f5a39faec1dc2510d9fee707956fd 1200w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/a73a1162-64d5-4505-9056-c81b5f001826_rw_1920.jpg?h=2a1872631b30bdf0701adc74491fe69b 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 74.83%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">8. Follow the feature’s success</div><div style="text-align: left;" class="main-text">If everything was rightly done metrics should be available for gathering. Checking in with customer care and give them the heads up about what is going on and setting a preferential channel for customer feedbacks regarding all aspects of the new feature is also a good idea to monitor the pulse of the situation.<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/057b8de0-d05b-44df-ad33-9156f76beb81.jpg?h=df1da8cb7100afb0cd89dad150b51f35">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/057b8de0-d05b-44df-ad33-9156f76beb81_rw_1920.jpg?h=e8a8c1ad094e5cb4169b25b2551fad39"
+            data-srcset="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/057b8de0-d05b-44df-ad33-9156f76beb81_rw_600.jpg?h=13cdb1a0c0fc9c9403ea22bb906453ab 600w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/057b8de0-d05b-44df-ad33-9156f76beb81_rw_1200.jpg?h=d84b1635cd31cd6608b77df5a7696a6f 1200w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/057b8de0-d05b-44df-ad33-9156f76beb81_rw_1920.jpg?h=e8a8c1ad094e5cb4169b25b2551fad39 1920w,"
+            data-sizes="(max-width: 1920px) 100vw, 1920px"
+            width="1920"
+            height="0"
+            style="padding-bottom: 89.5%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="sub-title">9. Did the solution solve the problem?<br></div><div style="text-align:left;">The feature has been shipped and available to the public for a few months now, and depending on the roadmap and other issues it should be time to ask the question: did the larger user base actually found the problem solved by the implemented solution?</div><div style="text-align:left;">In the perfect world, there are large parties and gathering being held to celebrate the simple brilliant beauty of the solution and world famine is now a memory just because of this feature’s problem solving abilities.</div><div style="text-align:left;">In reality, not everyone is pleased (users and/or teammates), other issues have arisen and it might be time to solve niche problems or - regardless the entire process - we might have missed the mark. So, let’s keep faith in the process and start all over again (with more insight).<br></div></div>
+</div>
+
+            
+            
+            <div class="project-module module image project-module-image editable js-editable js-project-module"  style="  padding-top: px;
+  padding-bottom: px;
+  width: 66%;
+  float: center;
+  clear: both;
+">
+
+    <div class="js-lightbox" data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d.jpg?h=4ce6ca6d882d7281ac724373a3e08fbd">
+          <img
+            class="js-lazy"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d_rw_3840.jpg?h=380990f832641b626f17a13aaf6a0579"
+            data-srcset="https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d_rw_600.jpg?h=a95d9bbb6168c57458cce64791c3af61 600w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d_rw_1200.jpg?h=3450af75fec19f57d9129606c91b8122 1200w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d_rw_1920.jpg?h=ecc4a399e964a09e54e4f47c108c75f9 1920w,https://pro2-bar-s3-cdn-cf6.myportfolio.com/6b22a3ad58e43838024719ec6b86c319/0fe0e46b-c4c1-4396-84f9-28063fcf292d_rw_3840.jpg?h=380990f832641b626f17a13aaf6a0579 3840w,"
+            data-sizes="(max-width: 3840px) 100vw, 3840px"
+            width="3840"
+            height="0"
+            style="padding-bottom: 64.67%; background: rgba(0, 0, 0, 0.03)"
+            
+          >
+    </div>
+
+</div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="project-module module text project-module-text align- editable js-editable js-project-module" style="  padding-top: px;
+  padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div class="caption">All illustrations by me, here the article on <span class="texteditor-inline-color" style="color:#44b09d;"><a href="https://medium.com/@francine.negro/the-circle-of-product-design-6c78ade2010e" target="_blank">Medium</a></span></div></div>
+</div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+                <footer class="site-footer js-editable-target editable">
+                    <div class="social pf-footer-social">
+                      <ul>
+                              <li>
+                                <a href="https://twitter.com/frncn_n" target="_blank">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 30 24" xml:space="preserve" class="icon"><path d="M24.71 5.89C24 6.2 23.2 6.4 22.4 6.53c0.82-0.5 1.45-1.29 1.75-2.23c-0.77 0.46-1.62 0.8-2.53 1 C20.92 4.5 19.9 4 18.7 4c-2.2 0-3.99 1.81-3.99 4.04c0 0.3 0 0.6 0.1 0.92C11.54 8.8 8.6 7.2 6.6 4.7 C6.3 5.3 6.1 6 6.1 6.77c0 1.4 0.7 2.6 1.8 3.36c-0.65-0.02-1.27-0.2-1.81-0.51c0 0 0 0 0 0.1 c0 2 1.4 3.6 3.2 3.96c-0.34 0.09-0.69 0.14-1.05 0.14c-0.26 0-0.51-0.03-0.75-0.07c0.51 1.6 2 2.8 3.7 2.8 c-1.36 1.08-3.08 1.73-4.95 1.73c-0.32 0-0.64-0.02-0.95-0.06C7.05 19.3 9.1 20 11.4 20c7.33 0 11.34-6.15 11.34-11.49 c0-0.18 0-0.35-0.01-0.52C23.5 7.4 24.2 6.7 24.7 5.89z"/></svg>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://www.behance.net/francescanegro" target="_blank">
+                                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 24" class="icon"><path id="path-1" d="M18.83,14.38a2.78,2.78,0,0,0,.65,1.9,2.31,2.31,0,0,0,1.7.59,2.31,2.31,0,0,0,1.38-.41,1.79,1.79,0,0,0,.71-0.87h2.31a4.48,4.48,0,0,1-1.71,2.53,5,5,0,0,1-2.78.76,5.53,5.53,0,0,1-2-.37,4.34,4.34,0,0,1-1.55-1,4.77,4.77,0,0,1-1-1.63,6.29,6.29,0,0,1,0-4.13,4.83,4.83,0,0,1,1-1.64A4.64,4.64,0,0,1,19.09,9a4.86,4.86,0,0,1,2-.4A4.5,4.5,0,0,1,23.21,9a4.36,4.36,0,0,1,1.5,1.3,5.39,5.39,0,0,1,.84,1.86,7,7,0,0,1,.18,2.18h-6.9Zm3.67-3.24A1.94,1.94,0,0,0,21,10.6a2.26,2.26,0,0,0-1,.22,2,2,0,0,0-.66.54,1.94,1.94,0,0,0-.35.69,3.47,3.47,0,0,0-.12.65h4.29A2.75,2.75,0,0,0,22.5,11.14ZM18.29,6h5.36V7.35H18.29V6ZM13.89,17.7a4.4,4.4,0,0,1-1.51.7,6.44,6.44,0,0,1-1.73.22H4.24V5.12h6.24a7.7,7.7,0,0,1,1.73.17,3.67,3.67,0,0,1,1.33.56,2.6,2.6,0,0,1,.86,1,3.74,3.74,0,0,1,.3,1.58,3,3,0,0,1-.46,1.7,3.33,3.33,0,0,1-1.35,1.12,3.19,3.19,0,0,1,1.82,1.26,3.79,3.79,0,0,1,.59,2.17,3.79,3.79,0,0,1-.39,1.77A3.24,3.24,0,0,1,13.89,17.7ZM11.72,8.19a1.25,1.25,0,0,0-.45-0.47,1.88,1.88,0,0,0-.64-0.24,5.5,5.5,0,0,0-.76-0.05H7.16v3.16h3a2,2,0,0,0,1.28-.38A1.43,1.43,0,0,0,11.89,9,1.73,1.73,0,0,0,11.72,8.19ZM11.84,13a2.39,2.39,0,0,0-1.52-.45H7.16v3.73h3.11a3.61,3.61,0,0,0,.82-0.09A2,2,0,0,0,11.77,16a1.39,1.39,0,0,0,.47-0.54,1.85,1.85,0,0,0,.17-0.88A1.77,1.77,0,0,0,11.84,13Z"/></svg>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://www.linkedin.com/in/francesca-negro" target="_blank">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" style="enable-background:new 0 0 30 24;" xml:space="preserve" class="icon">
+                                  <path id="path-1_24_" d="M19.6,19v-5.8c0-1.4-0.5-2.4-1.7-2.4c-1,0-1.5,0.7-1.8,1.3C16,12.3,16,12.6,16,13v6h-3.4
+                                    c0,0,0.1-9.8,0-10.8H16v1.5c0,0,0,0,0,0h0v0C16.4,9,17.2,7.9,19,7.9c2.3,0,4,1.5,4,4.9V19H19.6z M8.9,6.7L8.9,6.7
+                                    C7.7,6.7,7,5.9,7,4.9C7,3.8,7.8,3,8.9,3s1.9,0.8,1.9,1.9C10.9,5.9,10.1,6.7,8.9,6.7z M10.6,19H7.2V8.2h3.4V19z"/>
+                                  </svg>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://dribbble.com/francinenegro" target="_blank">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 30 24" xml:space="preserve" class="icon"><path d="M15 20c-4.41 0-8-3.59-8-8s3.59-8 8-8c4.41 0 8 3.6 8 8S19.41 20 15 20L15 20z M21.75 13.1 c-0.23-0.07-2.12-0.64-4.26-0.29c0.89 2.5 1.3 4.5 1.3 4.87C20.35 16.6 21.4 15 21.8 13.1L21.75 13.1z M17.67 18.3 c-0.1-0.6-0.5-2.69-1.46-5.18c-0.02 0-0.03 0.01-0.05 0.01c-3.85 1.34-5.24 4.02-5.36 4.27c1.16 0.9 2.6 1.4 4.2 1.4 C15.95 18.8 16.9 18.6 17.7 18.3L17.67 18.3z M9.92 16.58c0.15-0.27 2.03-3.37 5.55-4.51c0.09-0.03 0.18-0.06 0.27-0.08 c-0.17-0.39-0.36-0.78-0.55-1.16c-3.41 1.02-6.72 0.98-7.02 0.97c0 0.1 0 0.1 0 0.21C8.17 13.8 8.8 15.4 9.9 16.58L9.92 16.6 z M8.31 10.61c0.31 0 3.1 0 6.32-0.83c-1.13-2.01-2.35-3.7-2.53-3.95C10.18 6.7 8.8 8.5 8.3 10.61L8.31 10.61z M13.4 5.4 c0.19 0.2 1.4 1.9 2.5 4c2.43-0.91 3.46-2.29 3.58-2.47C18.32 5.8 16.7 5.2 15 5.18C14.45 5.2 13.9 5.2 13.4 5.4 L13.4 5.37z M20.29 7.69c-0.14 0.19-1.29 1.66-3.82 2.69c0.16 0.3 0.3 0.7 0.5 0.99c0.05 0.1 0.1 0.2 0.1 0.3 c2.27-0.29 4.5 0.2 4.8 0.22C21.82 10.3 21.2 8.8 20.3 7.69L20.29 7.69z"/></svg>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://medium.com/@francine.negro" target="_blank">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" style="enable-background:new 0 0 30 24;" xml:space="preserve" class="icon">
+                                  <g>
+                                    <path class="st0" d="M23.5,7.4C23.5,7.4,23.5,7.4,23.5,7.4L23.5,7.4l-5.2-2.6c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0
+                                      c-0.2,0-0.4,0.1-0.5,0.3l-3,4.8l3.7,6.1L23.5,7.4C23.5,7.5,23.5,7.4,23.5,7.4z"/>
+                                    <polygon class="st0" points="13,8.8 13,14.3 17.9,16.7   "/>
+                                    <path class="st0" d="M18.6,17.1l4,2c0.5,0.3,0.9,0.1,0.9-0.4V9L18.6,17.1z"/>
+                                    <path class="st0" d="M12.1,7.4l-5-2.5C7,4.9,6.9,4.8,6.8,4.8C6.6,4.8,6.4,5,6.4,5.3v10.9c0,0.3,0.2,0.6,0.5,0.8l4.4,2.2
+                                      c0.1,0.1,0.2,0.1,0.3,0.1c0.3,0,0.5-0.2,0.5-0.6L12.1,7.4C12.1,7.5,12.1,7.4,12.1,7.4z"/>
+                                  </g>
+                                  </svg>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://society6.com/francinefourteen" target="_blank">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" style="enable-background:new 0 0 30 24;" xml:space="preserve" class="icon">
+                                  <g>
+                                    <path d="M17.6,11.3c-0.2,0-0.4,0-0.6,0.1c-0.2,0.1-0.4,0.2-0.6,0.5c-0.1,0.1-0.1,0.4-0.2,0.7c-0.1,0.4-0.1,0.8-0.1,1.3
+                                      c0,0.6,0,1,0.2,1.3c0.1,0.2,0.3,0.4,0.6,0.4c0.4,0,0.8-0.3,1.1-0.9c0.3-0.6,0.5-1.3,0.6-2.1c0-0.4-0.1-0.7-0.3-1
+                                      C18.1,11.4,17.9,11.3,17.6,11.3z"/>
+                                    <path d="M15,4c-4.4,0-8,3.6-8,8s3.6,8,8,8s8-3.6,8-8S19.4,4,15,4z M13.8,11.5c-0.2,0.1-0.4,0.2-0.6,0.2c-0.3,0-0.5-0.1-0.6-0.2
+                                      c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.2-0.2-0.3-0.2-0.5c0-0.1-0.1-0.3-0.1-0.4c-0.2,0.1-0.5,0.2-0.7,0.3c-0.2,0.2-0.3,0.4-0.3,0.7
+                                      c0,0.2,0,0.3,0.1,0.4c0.1,0.2,0.1,0.2,0.2,0.3c0.1,0,0.2,0.1,0.3,0.2c0.2,0,0.4,0.1,0.6,0.2c0.5,0.2,0.8,0.4,1.1,0.7
+                                      c0.2,0.2,0.4,0.5,0.4,0.8v0.1V14c0,0.2,0,0.5-0.2,0.8c-0.1,0.2-0.3,0.4-0.5,0.6c-0.2,0.2-0.5,0.4-0.9,0.5c-0.3,0-0.8,0.1-1.3,0.1
+                                      s-0.8,0-1.2-0.1c-0.3-0.1-0.5-0.2-0.7-0.3c-0.2-0.1-0.3-0.3-0.4-0.4c-0.1-0.1-0.1-0.3-0.1-0.4c0-0.2,0.1-0.4,0.3-0.6
+                                      C8.8,14,9,13.9,9.3,13.9s0.5,0.1,0.6,0.2c0.1,0.1,0.3,0.3,0.3,0.5c0.2,0.2,0.2,0.4,0.3,0.6c0,0.1,0.1,0.3,0.1,0.4
+                                      c0.5,0,0.8-0.1,1-0.3c0.2-0.2,0.3-0.5,0.3-0.8c0-0.2,0-0.3-0.1-0.4c0,0-0.1-0.1-0.3-0.2c-0.1-0.1-0.2-0.1-0.4-0.2
+                                      c-0.2-0.1-0.4-0.2-0.5-0.2c-0.5-0.2-0.8-0.4-1.1-0.7s-0.4-0.7-0.4-1.1c0-0.3,0.1-0.5,0.2-0.7c0.1-0.2,0.2-0.4,0.5-0.6
+                                      c0.3-0.1,0.6-0.3,0.9-0.4c0.4-0.1,0.8-0.2,1.3-0.2c0.3,0,0.6,0.1,0.8,0.1c0.3,0,0.5,0.1,0.7,0.1c0.2,0.1,0.4,0.3,0.5,0.4
+                                      c0.1,0.2,0.1,0.4,0.1,0.6S14,11.4,13.8,11.5z M19.6,15c-0.8,0.7-1.6,1-2.7,1c-0.8,0-1.5-0.3-2-0.8s-0.7-1.2-0.7-2
+                                      c0-1.6,0.6-3,1.7-4.1c1.1-1.1,2.5-1.8,4.4-2v0.6l-0.6,0.1c-0.5,0.2-1,0.3-1.3,0.6c-0.4,0.3-0.7,0.5-0.9,0.8
+                                      c-0.3,0.3-0.4,0.6-0.6,0.9c-0.2,0.4-0.3,0.7-0.5,1.1c0.3-0.3,0.6-0.4,0.9-0.6c0.4-0.1,0.8-0.2,1.3-0.2c0.6,0,1,0.2,1.4,0.6
+                                      s0.6,0.9,0.7,1.6C20.7,13.5,20.3,14.3,19.6,15z"/>
+                                  </g>
+                                  </svg>
+                                </a>
+                              </li>
+                      </ul>
+                    </div>
+                  <div class="footer-text">
+                    Picture taken by me. All content is not available for personal use or download, unless otherwise stated. <br>Copyright Francesca Negro 2018.
+                  </div>
+                </footer>
+          </main>
+        </div>
+      </div>
+    </div>
+  <div class="cookie-banner js-cookie-banner">
+    <p>Inserisci qui il testo che deve essere adattato alla tua area geografica. <a class="consent-link" href="process.html#">Accetta</a></p>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6458 -2604 16 16" class='close-btn'>
+      <g id="Group_1479" data-name="Group 1479" transform="translate(-8281.367 -3556.368)">
+        <rect id="Rectangle_6401" data-name="Rectangle 6401" class="stroke" width="1.968" height="20.66" transform="translate(1823.367 953.759) rotate(-45)"/>
+        <rect id="Rectangle_6402" data-name="Rectangle 6402" class="stroke" width="1.968" height="20.66" transform="translate(1824.758 968.368) rotate(-135)"/>
+      </g>
+    </svg>
+  </div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e7fb1b89a0","applicationID":"27726866","transactionName":"ZwZaYkJVDERXUxULCV5Me0NDQA1aGWsmJzJtQ2tfRFFYDXJVBwMTXBd7WV5AEFhaXAQQXAoKVlJVTD1oUVUV","queueTime":0,"applicationTime":126,"atts":"S0FNFApPHxsUUUNYHU0e","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+<script type="text/javascript">
+  // fix for Safari's back/forward cache
+  window.onpageshow = function(e) {
+    if (e.persisted) { window.location.reload(); }
+  };
+</script>
+  <script type="text/javascript" src="http://use.typekit.net/ik/9f4NIOTS7LBFMTjbQX3JVQDTNowkY_AD_UjMyLAa39JfezJffHYEBsJzwD9oFDIDWh9DZeB8w2gyFQmcZAmKjAIU52MojDqDwRBRFDSoZeJkFeBKwR6kFDJ-pkG0Z140jht0jhNlOfG0dW83da4XZcNC-Av0jhNlOfG0SY4zwKuh-AmaOcuoSeNkieZzde8zOcFzdPUcScoRdKoRdhXCdW83da4XZcNC-Av0jhNlOYgkdDJlic88ikolpWgzS1scdhUTdkoRdhXCiaiaOcZkdcF0OcFzdPJIZc4cifJId1BqpPJISWgljKJIicFDdPG4fVgRIMMjgfMfH6qJvAwbMg6BJMJ7fbRkjUMMeMS6MKGHf4cbMsMgeMb6MKGHf47bMsMgeM96MKGHfOeUMsMgeMj6MKGHf4KbMsMgeMS6MKGHf4kbMsMgeM66MKGHfOKQMyMfeMb6MKG4fHCgIMwjMPMfH6qJtKGbMU62JMJ7fbKzMsM2eMb6MKGHfO2IMsM2eM96MKG4fHqgIMwjffMfqMY-CORQgb.js?cb=d1b1c7e04999f5ee8c2341b9335a6017271873d5"></script>
+  <script type="text/javascript">var __config__ = {"page_id":"p5a6e1005975e8f36f63683516b7c827a8669641db91cb2745026d","theme":{"name":"andreas"},"pageTransition":true,"linkTransition":true,"disableDownload":true,"lightbox":{"enabled":false},"cookie_banner":{"enabled":false},"googleAnalytics":{"trackingCode":"UA-77033915-2","anonymization":false}};</script>
+  <script type="text/javascript" src="dist/js/main.js@cb=d1b1c7e04999f5ee8c2341b9335a6017271873d5"></script>
+</html>
